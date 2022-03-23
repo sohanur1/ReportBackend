@@ -1,0 +1,40 @@
+#######################################################
+## @author   Md. Emran Hossain                       ##
+## @version  1.0                                     ##
+## @since    20 Jan, 2022                            ##
+#######################################################
+
+server:
+  port: 8080
+#  servlet:
+#    contextPath: /api
+  tomcat:
+    max-threads: 400
+
+#eureka:
+#  client:
+#    service-url:
+#      default-zone: http://localhost:8761/eureka
+#    register-with-eureka: false
+#    fetch-registry: false
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 40MB
+  profiles:
+    active: dev
+  application:
+    name: report-service
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        temp:
+          use-jdbc-metadata-defaults: false
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  hateoas:
+    use-hal-as-default-json-media-type: false

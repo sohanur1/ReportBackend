@@ -1,0 +1,43 @@
+#######################################################
+## @author   Md. Emran Hossain                       ##
+## @version  1.0                                     ##
+## @since    20 Jan, 2022                            ##
+#######################################################
+
+spring:
+  datasource:
+    url: jdbc:postgresql://172.16.28.80:5432/report-service
+    username: postgres
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+    dbcp2:
+      initial-size: 10
+      max-total: 380
+      min-idle: 2
+      max-idle: 40
+  jpa:
+    properties:
+      hibernate:
+        generate-statistics: false
+  data:
+    rest:
+      max-page-size: 10000
+  hateoas:
+    use-hal-as-default-json-media-type: false
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+      hibernate:
+        SQL: ERROR
+    com:
+      synesisit:
+        lnm: info
+  file:
+    name: /var/log/report-service/app.log
+    max-size: 10MB
+    max-history: 0
+  pattern:
+    file: "%d %-5level [%thread] %logger : %msg%n"
